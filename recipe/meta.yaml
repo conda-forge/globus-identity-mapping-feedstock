@@ -1,5 +1,5 @@
 {% set name = "globus-identity-mapping" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/globus_identity_mapping-{{ version }}.tar.gz
-  sha256: b1950bbe850b6e40753c9f9248a7c2d5e77f9a2c13a08f25db22b78d04171337
+  sha256: 6b5981bd991e5dc52b6dd8ac95463e07db26068117713cce724abd61357d76e7
 
 build:
   noarch: python
@@ -20,9 +20,10 @@ requirements:
     - poetry-core
     - pip
   run:
+    - click >=8.1.7,<9.0.0
     - python >=3.8
-    - marshmallow >=3.20.1,<4.0.0
-    - marshmallow-oneofschema >=3.0.1,<4.0.0
+    - marshmallow <3.21
+    - marshmallow-oneofschema >=3.0.1,<4.0.0,!=3.1.0
     - typing-extensions >=4.9,<4.10
   run_constrained:
     - pytest >=7.4.1,<7.5
