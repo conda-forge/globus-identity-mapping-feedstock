@@ -1,13 +1,13 @@
 {% set name = "globus-identity-mapping" %}
-{% set version = "0.3.0" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/globus_identity_mapping-{{ version }}.tar.gz
-  sha256: 6b5981bd991e5dc52b6dd8ac95463e07db26068117713cce724abd61357d76e7
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/globus_identity_mapping-{{ version }}.tar.gz
+  sha256: acd8c2efdb7f7c2d3a4e26dcce1a053e9081da903b1815a12164c3433aa66ddb
 
 build:
   noarch: python
@@ -22,9 +22,9 @@ requirements:
   run:
     - click >=8.1.7,<9.0.0
     - python >=3.8
-    - marshmallow <3.21
+    - marshmallow <3.22
     - marshmallow-oneofschema >=3.0.1,<4.0.0,!=3.1.0
-    - typing-extensions >=4.9,<4.10
+    - typing-extensions >=4.11
   run_constrained:
     - pytest >=7.4.1,<7.5
     - pytest-cov >=4.1,<4.2
