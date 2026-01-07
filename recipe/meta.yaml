@@ -20,7 +20,6 @@ requirements:
     - poetry-core
     - pip
   run:
-    - typing_extensions >=4.11
     - click >=8.1.7,<9.0.0
     - python >={{ python_min }}
     - marshmallow >=3.26.2,<4.0.0
