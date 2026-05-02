@@ -1,0 +1,56 @@
+schema_version: 1
+
+context:
+  name: globus-identity-mapping
+  version: 0.5.0
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/globus_identity_mapping-${{ version }}.tar.gz
+  sha256: 48a871f2ae72be8c02485cb3a1736418e05ae72d78587abda4603de8d330f488
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - poetry-core
+    - pip
+  run:
+    - click >=8.1.7,<9.0.0
+    - python >=${{ python_min }}
+    - marshmallow >=3.26.2,<4.0.0
+    - marshmallow-oneofschema >=3.0.1,<4.0.0,!=3.1.0
+    - typing-extensions >=4.11
+  run_constraints:
+    - pytest >=7.4.1,<7.5
+    - pytest-cov >=4.1,<4.2
+    - pytest-mock >=3.12,<3.13
+
+tests:
+  - python:
+      imports:
+        - globus_identity_mapping
+      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - pip check
+
+about:
+  summary: Globus Identity Mapper Python library
+  license: Apache-2.0
+  license_file: LICENSE
+  homepage: https://www.globus.org
+
+extra:
+  recipe-maintainers:
+    - jan-janssen

@@ -3,7 +3,7 @@ About globus-identity-mapping-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/globus-identity-mapping-feedstock/blob/main/LICENSE.txt)
 
-Home: https://www.globus.org
+Home: https://www.globus.org/
 
 Package license: Apache-2.0
 
